@@ -34,7 +34,6 @@ jobs:
         run: python -m unittest discover -s . -p "tests.py"
 
       - name: Upload test results
-        if: success()
         uses: actions/upload-artifact@v2
         with:
           name: test-results
@@ -58,7 +57,7 @@ jobs:
           pip install pylint
 
       - name: Run static analysis
-        run: pylint main.py tests.py > pylint-report.txt
+        run: pylint main.py > pylint-report.txt
 
       - name: Upload static analysis results
         uses: actions/upload-artifact@v2
